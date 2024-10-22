@@ -1,10 +1,11 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-// import primaryColor from "../../constants/Colors";
-
-const primaryColor = "#7E463E";
+import { Colors } from "../../constants/Colors";
+// import { View, Text } from "react-native";
+import Header from "@/components/Header";
 
 export default function RootLayout() {
+  const colors = Colors.colors;
   return (
     <Tabs
       screenOptions={({ route }) => ({
@@ -13,17 +14,20 @@ export default function RootLayout() {
 
           if (route.name === "index") {
             iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "location") {
-            iconName = focused ? "locate" : "locate-outline";
-          } else if (route.name === "orders") {
-            iconName = focused ? "clipboard" : "clipboard-outline";
+          } else if (route.name === "menu") {
+            iconName = focused ? "book" : "book-outline";
+          } else if (route.name === "favorites") {
+            iconName = focused ? "heart" : "heart-outline";
+          } else if (route.name === "cart") {
+            iconName = focused ? "cart" : "cart-outline";
           } else if (route.name === "profile") {
             iconName = focused ? "person-circle" : "person-circle-outline";
           }
-          return <Ionicons name={iconName} size={size} color={primaryColor} />;
+          return <Ionicons name={iconName} size={size} color={colors.dull} />;
         },
-        tabBarActiveTintColor: primaryColor,
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: colors.espresso,
+        tabBarInactiveTintColor: colors.dull,
+        header: () => <Header />,
       })}
     >
       <Tabs.Screen
@@ -33,15 +37,21 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="location"
+        name="menu"
         options={{
-          title: "Location",
+          title: "Menu",
         }}
       />
       <Tabs.Screen
-        name="orders"
+        name="favorites"
         options={{
-          title: "Orders",
+          title: "Favorites",
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: "Cart",
         }}
       />
       <Tabs.Screen

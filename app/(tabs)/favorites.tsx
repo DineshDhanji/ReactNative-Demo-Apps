@@ -9,7 +9,7 @@ export default function Order() {
         alignItems: "center",
       }}
     >
-      <Text>Orders</Text>
+      <Text>favorites.tsx</Text>
     </View>
   );
 }

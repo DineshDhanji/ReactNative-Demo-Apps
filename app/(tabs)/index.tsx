@@ -9,9 +9,12 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text className="text-lg font-bold">
+      {/* <Text className="text-9xl font-bold" style={{ fontFamily: "Pacifico-Regular" }}>
         Edit app/home.tsx to edit this screen.
       </Text>
+      <Text className="text-9xl font-bold" style={{ fontFamily: "Raleway-Regular" }}>
+        Edit app/home.tsx to edit this screen.
+      </Text> */}
     </View>
   );
 }

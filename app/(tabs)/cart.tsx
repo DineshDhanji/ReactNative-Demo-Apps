@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function Location() {
+export default function Order() {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export default function Location() {
         alignItems: "center",
       }}
     >
-      <Text>Location</Text>
+      <Text>cart.tsx</Text>
     </View>
   );
 }
