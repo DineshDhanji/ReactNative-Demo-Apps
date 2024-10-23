@@ -1,20 +1,29 @@
-import { View, Text } from "react-native";
-
+import { View, Text, ScrollView } from "react-native";
+import Greet from "@/components/Greet";
+import SearchBar from "@/components/SearchBar";
+import Banner from "@/components/Banner";
+import Card from "@/components/Card";
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {/* <Text className="text-9xl font-bold" style={{ fontFamily: "Pacifico-Regular" }}>
-        Edit app/home.tsx to edit this screen.
+    <View className="bg-latte h-screen max-h-dvh px-3">
+      <Greet />
+      <SearchBar />
+      <Banner />
+      <Text className="text-xl text-start text-dark_coffee my-3 py-1 font-[Raleway-Regular] font-bold">
+        Daily Specials
       </Text>
-      <Text className="text-9xl font-bold" style={{ fontFamily: "Raleway-Regular" }}>
-        Edit app/home.tsx to edit this screen.
-      </Text> */}
+      <View className="h-max">
+        <ScrollView
+          alwaysBounceHorizontal={true}
+          horizontal={true}
+          className=" h-max w-full"
+        >
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </ScrollView>
+      </View>
     </View>
   );
 }

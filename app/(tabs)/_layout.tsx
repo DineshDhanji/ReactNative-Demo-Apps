@@ -3,6 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Colors } from "../../constants/Colors";
 // import { View, Text } from "react-native";
 import Header from "@/components/Header";
+import { BackHandler } from "react-native";
 
 export default function RootLayout() {
   const colors = Colors.colors;
@@ -24,6 +25,10 @@ export default function RootLayout() {
             iconName = focused ? "person-circle" : "person-circle-outline";
           }
           return <Ionicons name={iconName} size={size} color={colors.dull} />;
+        },
+        tabBarStyle: {
+          backgroundColor: colors.latte,
+          borderTopColor: colors.dark_coffee,
         },
         tabBarActiveTintColor: colors.espresso,
         tabBarInactiveTintColor: colors.dull,

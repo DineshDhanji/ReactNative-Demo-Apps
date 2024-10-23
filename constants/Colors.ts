@@ -26,7 +26,7 @@ export const Colors = {
   colors: {
     dull: "#6A5750",
     espresso: "#855642",
-    latte: "#E3C9AE",
+    latte: "#E4CCB0",
     dark_coffee: "#200A00",
   },
 };
