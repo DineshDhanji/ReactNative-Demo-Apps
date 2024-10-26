@@ -24,14 +24,14 @@ export default function RootLayout() {
           } else if (route.name === "profile") {
             iconName = focused ? "person-circle" : "person-circle-outline";
           }
-          return <Ionicons name={iconName} size={size} color={colors.dull} />;
+          return <Ionicons name={iconName} size={size} color={colors.dull[200]} />;
         },
         tabBarStyle: {
-          backgroundColor: colors.latte,
-          borderTopColor: colors.dark_coffee,
+          backgroundColor: colors.latte[200],
+          borderTopColor: colors.dark_coffee[200],
         },
-        tabBarActiveTintColor: colors.espresso,
-        tabBarInactiveTintColor: colors.dull,
+        tabBarActiveTintColor: colors.espresso[200],
+        tabBarInactiveTintColor: colors.dull[200],
         header: () => <Header />,
       })}
     >

@@ -24,9 +24,25 @@ export const Colors = {
     tabIconSelected: tintColorDark,
   },
   colors: {
-    dull: "#6A5750",
-    espresso: "#855642",
-    latte: "#E4CCB0",
-    dark_coffee: "#200A00",
+    dull: {
+      100: "#6A5750",
+      200: "#6A5750",
+      300: "#6A5750",
+    },
+    espresso: {
+      100: "#855642",
+      200: "#855642",
+      300: "#855642",
+    },
+    latte: {
+      100: "#E4CCB0",
+      200: "#E4CCB0",
+      300: "#E4CCB0",
+    },
+    dark_coffee: {
+      100: "#200A00",
+      200: "#200A00",
+      300: "#433028",
+    },
   },
 };

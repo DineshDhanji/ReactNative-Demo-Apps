@@ -25,7 +25,7 @@ export default function RootLayout() {
   }
   return (
     <SafeAreaView style={{ flex: 1,
-    //  paddingTop: 30
+     paddingTop: 30
       }}>
       <Stack
         screenOptions={{

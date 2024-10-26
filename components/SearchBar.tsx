@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Colors } from "@/constants/Colors";
 
 export default function SearchBar() {
-  const colorsDark = Colors.colors.dark_coffee;
+  const colorsDark = Colors.colors.dark_coffee[200];
   return (
     <KeyboardAvoidingView
       className="h-14 border rounded-full flex flex-row items-center px-3"
@@ -15,7 +15,10 @@ export default function SearchBar() {
         size={24}
         color={colorsDark}
       />
-      <TextInput className="w-full h-full outline-none" placeholder="Search your coffee ☕" />
+      <TextInput
+        className="w-full h-full outline-none"
+        placeholder="Search your coffee ☕"
+      />
     </KeyboardAvoidingView>
   );
 }

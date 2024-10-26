@@ -3,9 +3,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Colors } from "@/constants/Colors";
 
 export default function Banner() {
-  const colorsDark = Colors.colors.dark_coffee;
+  const colorsDark = Colors.colors.dark_coffee[200];
   return (
-    <View className="h-44 w-full border-2 border-dark_coffee rounded-lg mt-3 overflow-hidden">
+    <View className="h-44 w-full border-2 border-dark_coffee-200 rounded-lg mt-3 overflow-hidden">
       <Image
         className="object-cover h-full w-full"
         source={require("../assets/images/banners/banner_1.jpg")}
