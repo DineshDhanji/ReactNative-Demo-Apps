@@ -16,22 +16,22 @@ export default function Index() {
   const [shownContacts, setShownContacts] = React.useState([]);
 
   const searchContacts = (text) => {
-    // console.log(text);
     if (text === "") {
-      console.log("Contacts", contacts);
+      // console.log("Contacts", contacts);
       setShownContacts(contacts);
     } else {
-      // console.log(text.toLowerCase())
+      console.log(text.toLowerCase());
       const filteredContacts = contacts.filter((contact) => {
-        return contact.name.toLowerCase().includes(text.toLowerCase()); // Filter based on name
+        return contact.name.toLowerCase().includes(text.toLowerCase());
       });
+      console.log("Filtered Contacts", filteredContacts);
       setShownContacts(filteredContacts);
     }
   };
   return (
     <ScrollView className="bg-white">
       <KeyboardAvoidingView
-      className="mt-2"
+        className="mt-2"
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View className="bg-white justify-center items-center h-max px-3">
@@ -56,7 +56,7 @@ export default function Index() {
           <Text style={chatsStyles.headerText}>Groups</Text>
         </Pressable>
       </View>
-      {contacts.map((contact, index) => (
+      {shownContacts.map((contact, index) => (
         <ChatBox key={index} contact={contact} />
       ))}
     </ScrollView>
