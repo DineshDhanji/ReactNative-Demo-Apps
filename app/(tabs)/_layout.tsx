@@ -1,20 +1,21 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { View, Text, StyleSheet, Pressable } from "react-native";
+import React from "react";
 
 export default function RootLayout() {
   return (
     <Tabs
-      initialRouteName="Chats"
+      initialRouteName="(chats)"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === "index") {
+          if (route.name === "(chats)") {
             iconName = focused
               ? "chatbox-ellipses"
               : "chatbox-ellipses-outline";
-          } else if (route.name === "updates") {
+          } else if (route.name === "(updates)") {
             iconName = focused ? "disc" : "disc-outline";
           } else if (route.name === "communities") {
             iconName = focused ? "people" : "people-outline";
@@ -31,44 +32,13 @@ export default function RootLayout() {
         tabBarLabelStyle: {
           fontWeight: "900",
         },
-        headerLeft: () => {
-          return <Text style={styles.mainHeaderLeftSide}>WhatsApp</Text>;
-        },
-        headerRight: () => {
-          return (
-            <View style={styles.mainHeaderRightSide}>
-              <Pressable
-                style={({ pressed }) => [
-                  { backgroundColor: pressed ? "#F7F5F3" : "white" },
-                  styles.headerButton,
-                ]}
-              >
-                <Ionicons name="camera-outline" size={27} />
-              </Pressable>
-              {/* <Pressable
-                style={({ pressed }) => [
-                  { backgroundColor: pressed ? "#F7F5F3" : "white" },
-                  styles.headerButton,
-                ]}
-              >
-                <Ionicons name="search-outline" size={27} />
-              </Pressable> */}
-              <Pressable
-                style={({ pressed }) => [
-                  { backgroundColor: pressed ? "#F7F5F3" : "white" },
-                  styles.headerButton,
-                ]}
-              >
-                <Ionicons name="ellipsis-vertical-outline" size={27} />
-              </Pressable>
-            </View>
-          );
-        },
+
+        headerShown: false,
         headerTitle: "",
       })}
     >
-      <Tabs.Screen name="index" options={{ title: "Chats" }} />
-      <Tabs.Screen name="updates" options={{ title: "Updates" }} />
+      <Tabs.Screen name="(chats)" options={{ title: "Chats" }} />
+      <Tabs.Screen name="(updates)" options={{ title: "Updates" }} />
       <Tabs.Screen name="communities" options={{ title: "Communities" }} />
       <Tabs.Screen name="calls" options={{ title: "Calls" }} />
     </Tabs>

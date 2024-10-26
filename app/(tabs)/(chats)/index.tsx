@@ -9,11 +9,16 @@ import {
   Platform,
 } from "react-native";
 import React from "react";
+
 import ChatBox from "@/components/Chatbox";
 import contacts from "@/constants/contacts";
+import { Colors } from "@/constants/Colors";
 
 export default function Index() {
   const [shownContacts, setShownContacts] = React.useState([]);
+  React.useEffect(() => {
+    setShownContacts(contacts);
+  }, []);
 
   const searchContacts = (text) => {
     if (text === "") {
