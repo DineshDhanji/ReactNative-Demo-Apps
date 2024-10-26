@@ -29,13 +29,14 @@ export default function Index() {
     }
   };
   return (
-    <ScrollView style={chatsStyles.container}>
+    <ScrollView className="bg-white">
       <KeyboardAvoidingView
+      className="mt-2"
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <View style={chatsStyles.searchBarContainer}>
+        <View className="bg-white justify-center items-center h-max px-3">
           <TextInput
-            style={chatsStyles.searchBar}
+            className="rounded-full w-full h-14 px-4 bg-gray-100 outline-none"
             placeholder="Ask Meta AI or Search"
             keyboardType="text"
             onChangeText={searchContacts}
@@ -63,30 +64,6 @@ export default function Index() {
 }
 
 const chatsStyles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-  },
-  searchBarContainer: {
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  searchBar: {
-    borderRadius: 100,
-    backgroundColor: "#F7F5F3",
-    width: "95%",
-    fontSize: 16,
-    paddingHorizontal: 20,
-    height: 50,
-  },
-  headerBar: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    height: 55,
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-  },
   headercomponent: {
     backgroundColor: "#F7F5F3",
     height: "auto",
