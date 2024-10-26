@@ -42,7 +42,7 @@ export default function Index() {
           />
         </View>
       </KeyboardAvoidingView>
-      <View style={chatsStyles.headerBar}>
+      <View className="flex flex-row items-center px-4 py-2 bg-white">
         <Pressable
           style={[chatsStyles.headercomponent, { backgroundColor: "#D0FECF" }]}
         >

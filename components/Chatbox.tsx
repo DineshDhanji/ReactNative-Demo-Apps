@@ -4,21 +4,18 @@ const defaultProfilePicture =
   "https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg";
 export default function ChatBox({ contact }) {
   return (
-    <Pressable
-      style={({ pressed, hovered }) => [
-        chatsStyles.container,
-        { backgroundColor: hovered ? "#F7F5F3" : "white" }, // Change color when pressed
-        { backgroundColor: pressed ? "#F7F5F3" : "white" }, // Change color when pressed
-      ]}
-    >
+    <Pressable className="bg-white hover:bg-secondary-main flex flex-row px-3">
+      <View className="m-auto">
+
       <Image
         style={chatsStyles.profilePicture}
         source={{
           uri: contact.profilePicture
-            ? contact.profilePicture
-            : defaultProfilePicture,
+          ? contact.profilePicture
+          : defaultProfilePicture,
         }}
-      />
+        />
+        </View>
       <View style={chatsStyles.contactContainer}>
         <View style={chatsStyles.contactContainerLeft}>
           <Text style={chatsStyles.profileName} numberOfLines={1}>
