@@ -35,6 +35,7 @@ export default function RootLayout() {
 
         headerShown: false,
         headerTitle: "",
+        tabBarHideOnKeyboard: true,
       })}
     >
       <Tabs.Screen name="(chats)" options={{ title: "Chats" }} />

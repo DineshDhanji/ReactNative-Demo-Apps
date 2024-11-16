@@ -22,7 +22,6 @@ export default function Index() {
 
   const searchContacts = (text) => {
     if (text === "") {
-      // console.log("Contacts", contacts);
       setShownContacts(contacts);
     } else {
       console.log(text.toLowerCase());

@@ -1,36 +1,55 @@
+import React, { useContext } from "react";
 import { Text, View, Image, Pressable, ScrollView } from "react-native";
 import { Avatar, Button, List } from "react-native-paper";
+import { Link } from "expo-router";
+
+import { ProfileContext } from "./_layout";
+import { Colors } from "@/constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import { Colors } from "@/constants/Colors";
+
 export default function Settings() {
-  // const secondaryMain = Colors.palette.secondary.main;
+  const profileData = useContext(ProfileContext);
+
   return (
     <ScrollView>
       <View className="bg-white h-full">
-        <View className="h-24 flex flex-row items-center justify-evenly bg-white">
-          <View className="flex justify-center items-center size-20">
-            <Avatar.Image
-              size={65}
-              source={{
-                uri: "https://i.pinimg.com/564x/da/1d/b1/da1db1452129ce8557f08c8983403752.jpg",
-              }}
-            />
-          </View>
-          <View className="ps-3 w-3/6">
-            <Text className="text-black text-2xl font-normal">Naomi</Text>
-            <Text className="text-gray text-lg">Your Status</Text>
-          </View>
-          <View className="flex justify-center items-end p-3  size-24">
-            <Pressable className="bg-white hover:bg-secondary-main active:bg-secondary-main rounded-full">
-              <Ionicons
-                name="add-circle-outline"
-                size={30}
-                color={Colors.palette.primary.main}
-              />
-            </Pressable>
-          </View>
-        </View>
+        <Link
+          push
+          href={{
+            pathname: "/profile",
+          }}
+          asChild
+        >
+          <Pressable>
+            <View className="h-24 flex flex-row items-center justify-evenly bg-white">
+              <View className="flex justify-center items-center size-20">
+                <Avatar.Image
+                  size={65}
+                  source={{
+                    uri: profileData.profileImage,
+                  }}
+                />
+              </View>
+              <View className="ps-3 w-3/6">
+                <Text className="text-black text-2xl font-normal">
+                  {profileData.name}
+                </Text>
+                <Text className="text-gray text-lg">{profileData.status}</Text>
+              </View>
+              <View className="flex justify-center items-end p-3  size-24">
+                <Pressable className="bg-white hover:bg-secondary-main active:bg-secondary-main rounded-full">
+                  <Ionicons
+                    name="add-circle-outline"
+                    size={30}
+                    color={Colors.palette.primary.main}
+                  />
+                </Pressable>
+              </View>
+            </View>
+          </Pressable>
+        </Link>
+
         <View className="bg-white">
           <View className="hover:bg-secondary-main active:bg-secondary-main">
             <List.Item
