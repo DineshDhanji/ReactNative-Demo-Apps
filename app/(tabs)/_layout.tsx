@@ -12,9 +12,7 @@ export default function RootLayout() {
         tabBarIcon: ({ color, size, focused }) => {
           let iconName;
           if (route.name === "index") {
-            iconName = focused
-              ? "home"
-              : "home-outline";
+            iconName = focused ? "home" : "home-outline";
           } else if (route.name === "maps") {
             iconName = focused ? "map" : "map-outline";
           }
@@ -25,7 +23,7 @@ export default function RootLayout() {
         tabBarActiveBackgroundColor: Colors.rose[50],
         tabBarInactiveBackgroundColor: Colors.neutral[50],
         tabBarHideOnKeyboard: true,
-        // headerBackground: Colors.rose[50],
+        headerShown: false,
       })}
     >
       <Tabs.Screen
