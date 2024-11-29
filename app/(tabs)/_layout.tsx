@@ -1,73 +1,46 @@
 import { Tabs } from "expo-router";
-import { Text, TouchableOpacity } from "react-native";
-import { Colors } from "@/constants/Colors";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import "@/global.css";
 
-import Header from "@/components/Header";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Colors } from "@/constants/Colors";
 
 export default function RootLayout() {
   return (
     <Tabs
-      initialRouteName="index"
+      initialRouteName="maps"
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ color, size, focused }) => {
           let iconName;
-
           if (route.name === "index") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "(soccer)") {
-            iconName = focused ? "football" : "football-outline";
-          } else if (route.name === "(baseball)") {
-            iconName = focused ? "baseball" : "baseball-outline";
+            iconName = focused
+              ? "home"
+              : "home-outline";
+          } else if (route.name === "maps") {
+            iconName = focused ? "map" : "map-outline";
           }
-          // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-
-        tabBarLabelPosition: "below-icon",
-        tabBarLabelStyle: {
-          fontWeight: "bold",
-          fontSize: 13,
-        },
-        tabBarActiveTintColor: Colors.palette.primary[500],
-        tabBarInactiveTintColor: Colors.palette.secondary[400],
-        tabBarActiveBackgroundColor:Colors.palette.primary[100],
+        tabBarActiveTintColor: Colors.rose[700],
+        tabBarInactiveTintColor: Colors.neutral[700],
+        tabBarActiveBackgroundColor: Colors.rose[50],
+        tabBarInactiveBackgroundColor: Colors.neutral[50],
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: true,
-        animation: "shift",
-        cardStyle: { backgroundColor: "#000000" },
-
-        // Header
-        headerShown: true,
-        header: ({ navigation, route, options }) => {
-          return <Header />;
-        },
+        // headerBackground: Colors.rose[50],
       })}
     >
       <Tabs.Screen
-        name="(baseball)"
-        options={{
-          title: "Baseball Screen",
-          tabBarLabel: "Baseball",
-          tabBarAccessibilityLabel: "Baseball Tab",
-        }}
-      />
-
-      <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
           tabBarLabel: "Home",
-          tabBarAccessibilityLabel: "Home Tab",
+          title: "Home",
         }}
       />
-
       <Tabs.Screen
-        name="(soccer)"
+        name="maps"
         options={{
-          title: "Soccer Screen",
-          tabBarLabel: "Soccer",
-          tabBarAccessibilityLabel: "Soccer Tab",
+          tabBarLabel: "Map",
+          title: "Map",
+          headerShown: false,
         }}
       />
     </Tabs>
