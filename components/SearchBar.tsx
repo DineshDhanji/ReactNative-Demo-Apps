@@ -86,6 +86,7 @@ export default function SearchBar({ region, onSelectPlace }) {
         value={searchQuery}
         onChangeText={handleSearchQuery}
         mode="bar"
+        iconColor={Colors.rose[950]}
         icon={isExpanded ? "arrow-left" : "magnify"}
         onIconPress={isExpanded ? deactivateSearchBar : undefined}
         right={(props) => (
@@ -105,6 +106,7 @@ export default function SearchBar({ region, onSelectPlace }) {
             onPress={searchPlaces}
           />
         )}
+        
       />
       {isExpanded && (
         <View className="bg-rose-50 px-3 flex-1">
