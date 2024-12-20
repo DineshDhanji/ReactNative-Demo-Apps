@@ -31,6 +31,10 @@ export default function RootLayout() {
           name="asyncStorage"
           options={{ title: "AsyncStorage Page" }}
         />
+        <Stack.Screen
+          name="uselessView"
+          options={{ title: "UselessView Page" }}
+        />
       </Stack>
     </>
   );

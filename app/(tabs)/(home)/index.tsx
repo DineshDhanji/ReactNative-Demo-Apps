@@ -10,6 +10,7 @@ export default function Index() {
     "passObject",
     "countryAPI",
     "asyncStorage",
+    "uselessView",
   ];
   const navigation = useNavigation();
 
