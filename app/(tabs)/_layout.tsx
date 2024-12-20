@@ -11,8 +11,11 @@ export default function RootLayout() {
           if (route.name == "(home)") {
             iconName = focused ? "home" : "home-outline";
           }
-          if (route.name == "settings") {
+          else if (route.name == "settings") {
             iconName = focused ? "settings" : "settings-outline";
+          }
+          else if (route.name == "camera") {
+            iconName = focused ? "camera" : "camera-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -28,6 +31,7 @@ export default function RootLayout() {
     >
       <Tabs.Screen name="(home)" options={{ title: "Home" }} />
       <Tabs.Screen name="settings" options={{ title: "Settings" }} />
+      <Tabs.Screen name="camera" options={{ title: "Camera" }} />
     </Tabs>
   );
 }
