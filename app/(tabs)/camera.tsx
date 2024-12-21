@@ -1,15 +1,17 @@
 import { View, Text } from "react-native";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { useNavigation } from "expo-router";
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Button from "@/components/Button";
+import { TabsContext } from "./_layout";
 
 export default function Settings() {
   const [permission, requestCameraPermission] = useCameraPermissions();
   const [cameraFacing, setCameraFacing] = useState("back");
   const cameraRef = useRef(null);
   const navigation = useNavigation();
+  const photoURI = useContext(TabsContext);
 
   const flipCamera = () => {
     setCameraFacing((oldFacing) => (oldFacing === "back" ? "front" : "back"));
@@ -18,7 +20,7 @@ export default function Settings() {
     console.log("Capture");
     cameraRef.current.takePictureAsync().then((photo) => {
       console.log(photo);
-      AsyncStorage.setItem("photo", JSON.stringify(photo));
+      photoURI.saved = photo.uri;
       navigation.navigate("settings");
     });
   };

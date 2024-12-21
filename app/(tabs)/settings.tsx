@@ -1,32 +1,28 @@
 import { View, Text, Image } from "react-native";
 import { useNavigation } from "expo-router";
 import Button from "@/components/Button";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TabsContext } from "@/app/(tabs)/_layout";
 
 export default function Settings() {
   const navigation = useNavigation();
-  const defaultPhoto = useRef(
-    "https://i.pinimg.com/736x/f5/38/3f/f5383f7650fe7ee3768c7627be5b25aa.jpg"
-  );
-  const [photo, setPhoto] = useState(defaultPhoto.current);
+  const photoURI = useContext(TabsContext);
+  const [photo, setPhoto] = useState(photoURI?.default);
+
   useEffect(() => {
-    getPhotoFromLocalStorage();
+    getPhotoFromContext();
+    console.log(photoURI);
   });
 
-  const getPhotoFromLocalStorage = async () => {
-    const photo = await AsyncStorage.getItem("photo");
-    const JSONPhoto = JSON.parse(photo);
-    if (JSONPhoto !== null) {
-      setPhoto(JSONPhoto?.uri);
+  const getPhotoFromContext = async () => {
+    if (photoURI?.saved !== null) {
+      setPhoto(photoURI?.saved);
     }
   };
   const removePhoto = async () => {
-    const key = await AsyncStorage.getItem("photo");
-    if (key !== null) {
-      setPhoto(defaultPhoto.current);
-      await AsyncStorage.removeItem("photo");
-    }
+    photoURI.saved = null;
+    setPhoto(photoURI.default);
   };
   const goToCamera = () => {
     navigation.navigate("camera");
@@ -47,7 +43,6 @@ export default function Settings() {
         <Button onPress={goToCamera} text={"Update Profile"} />
         <Button onPress={removePhoto} text={"Go back to default"} />
       </View>
-      {/* <Text className="text-slate-950 text-3xl">Settings</Text> */}
     </View>
   );
 }
